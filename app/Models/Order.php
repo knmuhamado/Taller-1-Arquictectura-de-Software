@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
     use HasFactory;
+
     /**
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
@@ -16,17 +17,16 @@ class Order extends Model
      * $this->attributes['paid'] - boolean - contains the order paid status
      * $this->attributes['shipped'] - string - contains the order shipped status
      * $this->attributes['methodOfPayment'] - enum - contains the order method of payment (card, cash, bank)
-    */
+     */
+    protected $fillable = ['total', 'date', 'paid', 'shipped', 'methodOfPayment'];
 
-            
-    protected $fillable = ['total','date','paid','shipped','methodOfPayment'];
-
+    // Getters and setters for the order attributes
     public function getId(): int
     {
         return $this->attributes['id'];
     }
 
-    public function setId($id) : void
+    public function setId($id): void
     {
         $this->attributes['id'] = $id;
     }
@@ -36,7 +36,7 @@ class Order extends Model
         return $this->attributes['total'];
     }
 
-    public function setTotal($total) : void
+    public function setTotal($total): void
     {
         $this->attributes['total'] = $total;
     }
@@ -46,7 +46,7 @@ class Order extends Model
         return $this->attributes['date'];
     }
 
-    public function setDate($date) : void
+    public function setDate($date): void
     {
         $this->attributes['date'] = $date;
     }
@@ -56,7 +56,7 @@ class Order extends Model
         return $this->attributes['paid'];
     }
 
-    public function setPaid($paid) : void
+    public function setPaid($paid): void
     {
         $this->attributes['paid'] = $paid;
     }
@@ -66,7 +66,7 @@ class Order extends Model
         return $this->attributes['shipped'];
     }
 
-    public function setShipped($shipped) : void
+    public function setShipped($shipped): void
     {
         $this->attributes['shipped'] = $shipped;
     }
@@ -76,7 +76,7 @@ class Order extends Model
         return $this->attributes['methodOfPayment'];
     }
 
-    public function setMethodOfPayment($methodOfPayment) : void
+    public function setMethodOfPayment($methodOfPayment): void
     {
         $this->attributes['methodOfPayment'] = $methodOfPayment;
     }

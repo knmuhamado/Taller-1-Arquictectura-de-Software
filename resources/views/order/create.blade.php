@@ -18,10 +18,17 @@
               @csrf
               <input type="text" class="form-control mb-2" placeholder="Enter total" name="total" value="{{ old('total') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter date" name="date" value="{{ old('date') }}" />
-              <input type="text" class="form-control mb-2" placeholder="Enter paid status (true/false)" name="paid" value="{{ old('paid') }}" />
+              <select name="paid" class="form-control mb-2">
+                <option value="1" {{ old('paid') == 1 ? 'selected' : '' }}>Paid</option>
+                <option value="0" {{ old('paid') == 0 ? 'selected' : '' }}>Not Paid</option>
+            </select>
               <input type="text" class="form-control mb-2" placeholder="Enter shipped status (true/false)" name="shipped" value="{{ old('shipped') }}" />
-              <input type="text" class="form-control mb-2" placeholder="Enter method of payment (card/cash/bank)" name="methodOfPayment" value="{{ old('methodOfPayment') }}" />
-              <input type="submit" class="btn btn-primary" value="Send" />
+              <select name="methodOfPayment" class="form-control mb-2">
+                <option value="card" {{ old('methodOfPayment') == 'card' ? 'selected' : '' }}>Card</option>
+                <option value="cash" {{ old('methodOfPayment') == 'cash' ? 'selected' : '' }}>Cash</option>
+                <option value="bank" {{ old('methodOfPayment') == 'bank' ? 'selected' : '' }}>Bank</option>
+            </select>
+              <input type="submit" class="btn btn-lila" value="Send" />
             </form>
           </div>
         </div>
